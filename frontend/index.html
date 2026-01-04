@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI-Based Road Issue Detection</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>AI-Based Road Issue Detection System</h1>
+  <p>Smart reporting of road hazards using camera, GPS, and AI-assisted analysis</p>
+</header>
+
+<div class="container">
+
+  <!-- REPORT ISSUE -->
+  <div class="card">
+    <h2>🚧 Report a Road Issue</h2>
+
+    <label for="issueType">Type of Road Issue</label>
+    <select id="issueType">
+      <option value="pothole">Pothole</option>
+      <option value="streetlight">Broken Streetlight</option>
+    </select>
+
+    <label for="fileInput">Upload or Capture Evidence</label>
+    <input
+      type="file"
+      id="fileInput"
+      accept="image/*,video/*"
+      capture="environment">
+
+    <small>
+      Capture a photo/video using your camera or upload from gallery for accurate reporting
+    </small>
+
+    <button onclick="upload()">Submit Road Issue Report</button>
+  </div>
+
+  <!-- RESULT -->
+  <div class="card">
+    <h2>📊 System Analysis Result</h2>
+    <div id="result" class="result">
+      No reports submitted yet.<br>
+      Please submit a road issue to view system analysis.
+    </div>
+  </div>
+
+  <!-- MAP -->
+  <div class="card map-container">
+    <h2>📍 Detected Issue Location (Live GPS)</h2>
+
+    <iframe
+      id="mapFrame"
+      src="https://maps.google.com/maps?q=12.9716,77.5946&z=12&output=embed"
+      loading="lazy">
+    </iframe>
+
+    <small class="map-note">
+      Location is captured automatically from the user’s device GPS at the time of reporting.
+    </small>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
