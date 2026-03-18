@@ -1,4 +1,4 @@
-# Pothole-detection
+
 # AI-Based Road Issue Detection System 🚧🤖
 
 An intelligent community-driven web application that allows users to report road issues such as potholes and broken streetlights using **live GPS location, camera input, and AI-assisted severity analysis**.
