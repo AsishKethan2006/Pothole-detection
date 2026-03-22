@@ -3,14 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <title>AI-Based Road Issue Detection</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+      
 </head>
+
 <body>
 
 <header>
   <h1>AI-Based Road Issue Detection System</h1>
   <p>Smart reporting of road hazards using camera, GPS, and AI-assisted analysis</p>
 </header>
+
+<!-- AUTH SECTION -->
+<div id="auth-section" style="text-align:center; margin: 15px 0;">
+  <button id="loginBtn" style="padding:10px 18px; margin-right:10px;">
+    Login with Google
+  </button>
+
+  <button id="logoutBtn" style="padding:10px 18px; display:none;">
+    Logout
+  </button>
+
+  <p id="userInfo" style="margin-top:10px; font-weight:600;">
+    Please login to report an issue
+  </p>
+</div>
 
 <div class="container">
 
@@ -25,25 +46,25 @@
     </select>
 
     <label for="fileInput">Upload or Capture Evidence</label>
-    <input
-      type="file"
-      id="fileInput"
-      accept="image/*,video/*"
-      capture="environment">
+    <input type="file" id="fileInput" accept="image/*,video/*" capture="environment">
 
     <small>
-      Capture a photo/video using your camera or upload from gallery for accurate reporting
+      Capture a photo/video using your camera or upload from gallery
     </small>
 
     <button onclick="upload()">Submit Road Issue Report</button>
   </div>
+  <div class="card">
+  <h2>🧾 My Reports</h2>
+  <div id="myReports">Please login to view your reports.</div>
+  </div>
+
 
   <!-- RESULT -->
   <div class="card">
     <h2>📊 System Analysis Result</h2>
     <div id="result" class="result">
-      No reports submitted yet.<br>
-      Please submit a road issue to view system analysis.
+      No reports submitted yet.
     </div>
   </div>
 
@@ -58,12 +79,41 @@
     </iframe>
 
     <small class="map-note">
-      Location is captured automatically from the user’s device GPS at the time of reporting.
+      Location is captured automatically from the user’s device GPS.
+    </small>
+  </div>
+
+  <div class="card map-container">
+    <h2>🌍 Public Issue Map</h2>
+
+    <div id="publicMap" style="height: 400px;"></div>
+
+    <small class="map-note">
+      Displays all reported road issues.
     </small>
   </div>
 
 </div>
 
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyDZw4BbUPG8Wt90p7QD0e8zn2XkLPyQtNc",
+    authDomain: "road-issue-detection-49a68.firebaseapp.com",
+    projectId: "road-issue-detection-49a68",
+    storageBucket: "road-issue-detection-49a68.firebasestorage.app",
+    appId: "1:407386403360:web:c96e81e370582853208245"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+</script>
+
 <script src="script.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
 </body>
 </html>
