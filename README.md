@@ -95,19 +95,6 @@ Google Maps API keys are required for map rendering.
 ⚠️ **Do not expose API keys in production environments.**
 
 ---
-## 👥 Team Members
-
-- **Varun Reddy** – Full Stack Development, GPS & Camera Integration  
-  GitHub: https://github.com/hvarun4262-dev
-
-- **D ASISH KETHAN** – Backend Development & API Integration
-  GitHub: https://github.com/AsishKethan2006
-
-- **G CHETHAN SAI** – AI Logic, Problem Analysis & Documentation
-  GitHub: https://github.com/chethansai136-design
-
-
----
 
 ## 📸 Screenshots
 
