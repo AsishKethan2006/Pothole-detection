@@ -1,0 +1,7 @@
+uploads/
+reports.db
+reports.json
+__pycache__/
+*.pyc
+.env
+venv/
