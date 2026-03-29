@@ -1,7 +1,10 @@
 
-# AI-Based Road Issue Detection System 🚧🤖
+# Smarter reporting for safer roads.
 
-An intelligent community-driven web application that allows users to report road issues such as potholes and broken streetlights using **live GPS location, camera input, and AI-assisted severity analysis**.
+
+A full-stack web application that enables users to report road issues such as potholes and broken streetlights using real-time GPS location and image evidence.
+
+The system provides location-based visualization of issues on an interactive map, helping identify and prioritize infrastructure problems efficiently.
 
 Impact: This system enables faster, location-accurate road issue reporting to improve urban safety.
 
