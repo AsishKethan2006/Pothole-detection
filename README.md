@@ -47,7 +47,8 @@ RoadIntel/
 │   ├── script.js
 │   └── style.css
 ├── screenshots/
-└── README.md```
+└── README.md
+```
 
 ---
 
