@@ -1,6 +1,6 @@
 RoadIntel
 
-RoadIntel is a location-aware road issue reporting platform that allows users to report problems such as potholes and broken streetlights using image evidence and GPS location.
+RoadIntel is a location-aware road issue reporting platform that allows users to report road problems such as potholes and broken streetlights using images and GPS location.
 
 Features
 Google authentication using Firebase
@@ -14,18 +14,14 @@ Nearby duplicate issue detection
 SQLite database for storing reports
 Delete your own reports
 Tech Stack
-
 Frontend
-
 HTML
 CSS
 JavaScript
 Firebase Authentication
 Leaflet
 Leaflet MarkerCluster
-
 Backend
-
 Python
 Flask
 Flask-CORS
@@ -45,46 +41,111 @@ RoadIntel/
 └── README.md
 
 How It Works
+Sign in using Google authentication.
+Select the type of road issue.
+Upload or capture an image.
+Allow location access to capture the GPS coordinates.
+Submit the report.
+The backend validates the report and checks for duplicates.
+Valid reports are stored in the database and displayed on the public map.
+Duplicate Detection
 
-Users sign in with Google, select the type of road issue, upload or capture an image, and provide their current location.
+RoadIntel uses two methods to reduce duplicate reports:
 
-The backend validates the report before storing it. Images are checked using SHA-256 to prevent the same image from being submitted multiple times. Reports of the same issue type within a specific geographic distance are also rejected as duplicates.
+Image duplication: Uploaded images are hashed using SHA-256. The same image cannot be submitted more than once.
+Location duplication: Reports of the same issue type within a defined geographic distance are treated as duplicates.
 
-Submitted reports are displayed on an interactive map along with their location and supporting image.
+The current duplicate detection thresholds are:
 
-Run Locally
+Issue	Distance
+Pothole	100 meters
+Broken Streetlight	30 meters
+API Endpoints
+GET /reports
 
-Clone the repository:
+Returns the road issue reports stored in the database.
 
+POST /upload
+
+Creates a new road issue report.
+
+The request includes the issue type, image, latitude, longitude, and user information.
+
+GET /uploads/<filename>
+
+Returns an uploaded report image.
+
+POST /delete-report
+
+Deletes a report belonging to the authenticated user.
+
+Running Locally
+1. Clone the Repository
 git clone https://github.com/AsishKethan2006/RoadIntel.git
 cd RoadIntel
 
-
-Install backend dependencies:
-
+2. Install Backend Dependencies
 cd backend
 pip install -r requirements.txt
 
-
-Start the backend:
-
+3. Start the Backend
 python app.py
 
 
-Then open the frontend in a browser or serve it using a local HTTP server.
+The backend runs locally on:
 
-Make sure Firebase Authentication is configured before using Google sign-in.
+http://127.0.0.1:5000
+
+4. Start the Frontend
+
+Open frontend/index.html in a browser, or serve the frontend using a local HTTP server.
+
+For example:
+
+cd frontend
+python -m http.server 5500
+
+
+Then open:
+
+http://127.0.0.1:5500
+
+Firebase Configuration
+
+RoadIntel uses Firebase Authentication for Google sign-in.
+
+Before running the application, configure a Firebase project and enable Google authentication.
+
+For production use, Firebase configuration and authentication should be properly secured and restricted to the required domains.
 
 Current Limitations
 
-RoadIntel is currently a prototype. Issue types are selected manually, and the project does not currently include a computer-vision model for automatic road issue or severity detection.
+RoadIntel is currently a prototype.
 
-Future versions can add AI-based detection, severity classification, an authority dashboard, report verification, notifications, and production-ready authentication and storage.
+The current implementation does not include a computer-vision model for automatically detecting road issues or predicting their severity. Users manually select the issue type when submitting a report.
+
+The application currently uses SQLite and local file storage, which are suitable for development and prototyping but should be replaced with production-ready infrastructure for large-scale deployment.
+
+Future Improvements
+AI-based road issue detection
+Automatic severity classification
+Report verification
+Authority/admin dashboard
+Issue status tracking
+Maintenance assignment
+Notifications
+Advanced analytics and heatmaps
+Production database and cloud storage
+Stronger backend authentication and authorization
+Project Status
+
+RoadIntel is an ongoing project focused on making road issue reporting more accessible, location-aware, and organized.
+
+The current version provides the core reporting, validation, storage, and map visualization functionality needed to build a larger road monitoring platform.
 
 License
 
 No open-source license has currently been specified for this project.
-
 ##  Use Case
 
 - Smart city road monitoring
@@ -94,7 +155,7 @@ No open-source license has currently been specified for this project.
 
 ---
 
-##  API Keys & Security
+## API Keys & Security
 
 Google Maps API keys are required for map rendering.  
  **Do not expose API keys in production environments.**
