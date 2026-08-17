@@ -11,18 +11,18 @@ Impact: This system enables faster, location-accurate road issue reporting to im
 
 ---
 
-## 🚀 Features
+##  Features
 
-- 📍 **Live GPS Location Capture**
-- 📸 **Camera-based Photo & Video Upload**
-- 🧠 **AI-powered Issue Detection & Severity Analysis**
-- 🗺️ **Real-time Google Maps Location Preview**
-- ⚡ **Fast & User-Friendly Interface**
-- 🏙️ **Supports Smart City Infrastructure**
+-  **Live GPS Location Capture**
+-  **Camera-based Photo & Video Upload**
+-  **AI-powered Issue Detection & Severity Analysis**
+-  **Real-time Google Maps Location Preview**
+-  **Fast & User-Friendly Interface**
+-  **Supports Smart City Infrastructure**
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ### Frontend
 - HTML5
@@ -42,7 +42,7 @@ Impact: This system enables faster, location-accurate road issue reporting to im
 - **Google Chrome APIs** – camera and location permissions on mobile devices
 
 
-## ▶️ How to Run Locally
+##  How to Run Locally
 
 Follow these steps to run the prototype on your local machine:
 
@@ -69,10 +69,10 @@ python app.py
 3. Capture or upload photo/video
 4. View detected issue details and live location on Google Maps
 
-> ⚠️ Note: This is a prototype intended for demonstration purposes.
+>  Note: This is a prototype intended for demonstration purposes.
 
 
-## 📷 How It Works
+##  How It Works
 
 1. User selects the type of road issue
 2. Captures or uploads photo/video evidence
@@ -83,7 +83,7 @@ python app.py
 
 ---
 
-## 🌍 Use Case
+##  Use Case
 
 - Smart city road monitoring
 - Municipal corporation reporting
@@ -92,14 +92,14 @@ python app.py
 
 ---
 
-## 🔐 API Keys & Security
+##  API Keys & Security
 
 Google Maps API keys are required for map rendering.  
-⚠️ **Do not expose API keys in production environments.**
+ **Do not expose API keys in production environments.**
 
 ---
 
-## 📸 Screenshots
+##  Screenshots
 
 ### Homepage/Before Reporting Issue
 ![Homepage](screenshots/beforereporting.jpeg)
@@ -111,7 +111,7 @@ Google Maps API keys are required for map rendering.
 
 
 
-## ⭐ Future Enhancements
+##  Future Enhancements
 
 - AI model for real-time pothole detection
 - User authentication
