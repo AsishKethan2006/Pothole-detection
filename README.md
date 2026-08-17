@@ -102,7 +102,7 @@ Google Maps API keys are required for map rendering.
 ##  Screenshots
 
 ### Homepage/Before Reporting Issue
-![Homepage](screenshots/beforereporting.jpeg)
+![Homepage](screenshots/r1.jpeg)
 
 ### After Reporting Issue
 ![After Reporting Issue](screenshots/afterreporting.jpeg)
