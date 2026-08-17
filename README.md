@@ -47,7 +47,9 @@ RoadIntel/
 │   ├── script.js
 │   └── style.css
 ├── screenshots/
-└── README.md
+└── README.md```
+
+---
 
 ##  Use Case
 
@@ -55,13 +57,6 @@ RoadIntel/
 - Municipal corporation reporting
 - Community-driven road safety
 - Infrastructure maintenance prioritization
-
----
-
-## API Keys & Security
-
-Google Maps API keys are required for map rendering.  
- **Do not expose API keys in production environments.**
 
 ---
 
@@ -77,12 +72,6 @@ Google Maps API keys are required for map rendering.
 
 
 
-##  Future Enhancements
 
-- AI model for real-time pothole detection
-- User authentication
-- Admin dashboard for authorities
-- Issue status tracking
-- Heatmap visualization of road issues
 
 
