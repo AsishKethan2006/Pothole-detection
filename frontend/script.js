@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM loaded");
+  const API_URL = "https://roadintel.onrender.com";
 
   const auth = firebase.auth();
   const provider = new firebase.auth.GoogleAuthProvider();
@@ -20,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    fetch("http://127.0.0.1:5000/reports")
+    fetch(`${API_URL}/reports`)
       .then(res => res.json())
       .then(data => {
         container.innerHTML = "";
@@ -40,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           div.innerHTML = `
             <div style="display:flex;gap:12px;align-items:flex-start">
-              <img src="http://127.0.0.1:5000/uploads/${report.image}"style="width:72px;height:72px;object-fit:cover;border-radius:8px;flex-shrink:0"onerror="this.style.display='none'" />
+              <img src="${API_URL}/uploads/${report.image}"style="width:72px;height:72px;object-fit:cover;border-radius:8px;flex-shrink:0"onerror="this.style.display='none'" />
     <div>
       <strong style="text-transform:capitalize">${report.issue_type}</strong><br>
       📍 ${Number(report.latitude).toFixed(5)}, ${Number(report.longitude).toFixed(5)}<br>
@@ -63,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let publicMap = null;
 
 function loadPublicMap() {
-  fetch("http://127.0.0.1:5000/reports")
+  fetch(`${API_URL}/reports`)
     .then(res => res.json())
     .then(data => {
       if (!Array.isArray(data)) return;
@@ -118,7 +119,7 @@ function loadPublicMap() {
         marker.bindPopup(`
           <div style="min-width:180px">
             <strong style="text-transform:capitalize">${report.issue_type}</strong><br>
-            <img src="http://127.0.0.1:5000/uploads/${report.image}" style="width:100%;border-radius:6px;margin:6px 0" onerror="this.style.display='none'" /><br> 📍 ${lat.toFixed(5)}, ${lng.toFixed(5)}<br>
+            <img src="${API_URL}/uploads/${report.image}" style="width:100%;border-radius:6px;margin:6px 0" onerror="this.style.display='none'" /><br> 📍 ${lat.toFixed(5)}, ${lng.toFixed(5)}<br>
     <small>${new Date(report.timestamp).toLocaleString()}</small>
   </div>
 `);
@@ -140,7 +141,7 @@ function loadPublicMap() {
   window.deleteReport = function(reportId) {
     const user = firebase.auth().currentUser;
 
-    fetch("http://127.0.0.1:5000/delete-report", {
+    fetch(`${API_URL}/delete-report`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -267,7 +268,7 @@ function loadPublicMap() {
       formData.append("user_name", user.displayName || "Unknown");
 
 
-      fetch("http://127.0.0.1:5000/upload", {
+      fetch(`${API_URL}/upload`, {
         method: "POST",
         body: formData
       })
