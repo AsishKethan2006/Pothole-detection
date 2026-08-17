@@ -1,87 +1,89 @@
+RoadIntel
 
-# Smarter reporting for safer roads.
+RoadIntel is a location-aware road issue reporting platform that allows users to report problems such as potholes and broken streetlights using image evidence and GPS location.
+
+Features
+Google authentication using Firebase
+Report potholes and broken streetlights
+Upload or capture images as evidence
+Automatic GPS location capture
+Interactive public issue map
+Personal report history
+Duplicate image detection using SHA-256
+Nearby duplicate issue detection
+SQLite database for storing reports
+Delete your own reports
+Tech Stack
+
+Frontend
+
+HTML
+CSS
+JavaScript
+Firebase Authentication
+Leaflet
+Leaflet MarkerCluster
+
+Backend
+
+Python
+Flask
+Flask-CORS
+Flask-SQLAlchemy
+SQLite
+Project Structure
+RoadIntel/
+├── backend/
+│   ├── app.py
+│   ├── requirements.txt
+│   └── .gitignore
+├── frontend/
+│   ├── index.html
+│   ├── script.js
+│   └── style.css
+├── screenshots/
+└── README.md
+
+How It Works
+
+Users sign in with Google, select the type of road issue, upload or capture an image, and provide their current location.
+
+The backend validates the report before storing it. Images are checked using SHA-256 to prevent the same image from being submitted multiple times. Reports of the same issue type within a specific geographic distance are also rejected as duplicates.
+
+Submitted reports are displayed on an interactive map along with their location and supporting image.
+
+Run Locally
+
+Clone the repository:
+
+git clone https://github.com/AsishKethan2006/RoadIntel.git
+cd RoadIntel
 
 
-A full-stack web application that enables users to report road issues such as potholes and broken streetlights using real-time GPS location and image evidence.
+Install backend dependencies:
 
-The system provides location-based visualization of issues on an interactive map, helping identify and prioritize infrastructure problems efficiently.
-
-Impact: This system enables faster, location-accurate road issue reporting to improve urban safety.
-
-
----
-
-##  Features
-
--  **Live GPS Location Capture**
--  **Camera-based Photo & Video Upload**
--  **AI-powered Issue Detection & Severity Analysis**
--  **Real-time Google Maps Location Preview**
--  **Fast & User-Friendly Interface**
--  **Supports Smart City Infrastructure**
-
----
-
-##  Tech Stack
-
-### Frontend
-- HTML5
-- CSS3
-- JavaScript
-- Browser Geolocation API
-- Google Maps Embed (for location visualization)
-
-### Backend
-- Python
-- Flask
-- Flask-CORS
-
-### Google Technologies Used
-- **Google Maps Platform** – to visualize exact road issue locations on the map
-- **Google Geolocation Services (via browser)** – to capture live GPS coordinates
-- **Google Chrome APIs** – camera and location permissions on mobile devices
-
-
-##  How to Run Locally
-
-Follow these steps to run the prototype on your local machine:
-
-### Prerequisites
-- Python 3.x installed
-- A modern web browser (Google Chrome recommended)
-- Internet connection (for Google Maps)
-
-### Backend Setup
-```bash
 cd backend
+pip install -r requirements.txt
+
+
+Start the backend:
+
 python app.py
-```
-
----
-### Frontend Setup
-1. Open the `frontend` folder
-2. Open `index.html` in a browser  
-   (Google Chrome recommended)
-
-### Usage
-1. Allow **location** and **camera** permissions
-2. Select issue type (Pothole / Broken Streetlight)
-3. Capture or upload photo/video
-4. View detected issue details and live location on Google Maps
-
->  Note: This is a prototype intended for demonstration purposes.
 
 
-##  How It Works
+Then open the frontend in a browser or serve it using a local HTTP server.
 
-1. User selects the type of road issue
-2. Captures or uploads photo/video evidence
-3. System fetches live GPS location
-4. AI analyzes issue severity
-5. Exact issue location is displayed on Google Maps
-6. Data is sent to backend for processing
+Make sure Firebase Authentication is configured before using Google sign-in.
 
----
+Current Limitations
+
+RoadIntel is currently a prototype. Issue types are selected manually, and the project does not currently include a computer-vision model for automatic road issue or severity detection.
+
+Future versions can add AI-based detection, severity classification, an authority dashboard, report verification, notifications, and production-ready authentication and storage.
+
+License
+
+No open-source license has currently been specified for this project.
 
 ##  Use Case
 
